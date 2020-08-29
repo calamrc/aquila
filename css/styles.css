@@ -52,10 +52,6 @@ body {
   background: #e7e7e7;
 }
 
-#nav-list a span {
-  font-size: 1.8em;
-}
-
 /* Home Page */
 .container .jumbotron {
   background-color: #fff;
@@ -166,10 +162,14 @@ body {
 
   #collapsable-nav a {
     /* Collapsed nav menu text */
-    font-size: 1.8em;
+    font-size: 1.2em;
   }
 
   .navbar-toggle {
     margin-top: 10px;
+  }
+
+  #nav-list {
+    margin-top: 0;
   }
 }
