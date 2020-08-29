@@ -146,7 +146,7 @@ body {
 
   .navbar-brand h1 {
     /* Restaurant name */
-    font-size: 2em; /* 1vw = 1% of viewport width */
+    font-size: 2.2em; /* 1vw = 1% of viewport width */
   }
 }
 
@@ -161,12 +161,12 @@ body {
   .navbar-brand h1 {
     /* Restaurant name */
     padding-top: 10px;
-    font-size: 5vw; /* 1vw = 1% of viewport width */
+    font-size: 6vw; /* 1vw = 1% of viewport width */
   }
 
   #collapsable-nav a {
     /* Collapsed nav menu text */
-    font-size: 1.2em;
+    font-size: 1.8em;
   }
 
   .navbar-toggle {
