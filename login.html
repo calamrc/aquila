@@ -1,20 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <meta http-equiv="pragma" content="no-cache">
-    <meta http-equiv="expires" content="-1">
-    <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0;">
-    <title>AQUILA Login</title>
-    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Aquila Tekno Solution</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="css/styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital@0;1&display=swap" rel="stylesheet">
     <script src=js/angular.min.js></script>
     <script src=js/app.js></script>
-
   </head>
 
   <body>
+    <header>
+      <nav id="header-nav" class="navbar navbar-default">
+        <div class="container">
+          <div class="navbar-header">
+            <a href="login.html" class="pull-left visible-md visible-lg">
+              <div id="logo-img"></div>
+            </a>
+            <!--<div class="navbar-brand">-->
+              <!--<a href="login"><h1>Aquila Tekno Solution</h1></a>-->
+            <!--</div>-->
+          </div>
+        </div><!-- .container -->
+      </nav><!-- #header-nav -->
+    </header>
     $(if chap-id)
     <form name="sendin" action="$(link-login-only)" method="post">
       <input type="hidden" name="username" />
@@ -40,7 +52,7 @@
       <a href="$(link-login-only)?target=lv&amp;dst=$(link-orig-esc)">Latviski</a>
     </div>
 
-    <table width="100%" style="margin-top: 10%;">
+    <table>
       <tr>
         <td align="center" valign="middle">
           <div class="notice" style="color: #c1c1c1; font-size: 9px">Please log on to use the internet hotspot service<br />$(if trial == 'yes')Free trial available, <a style="color: #FF8080"href="$(link-login-only)?dst=$(link-orig-esc)&amp;username=T-$(mac-esc)">click here</a>.$(endif)</div><br />
@@ -76,9 +88,9 @@
     </table>
 
     <script type="text/javascript">
-      <!--
+      
   document.login.username.focus();
-      //-->
+      //
     </script>
   </body>
 </html>
