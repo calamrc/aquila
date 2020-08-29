@@ -68,6 +68,11 @@ body {
   margin-right: auto;
 }
 
+.panel-footer {
+  /*background: #9fd4f0;*/
+  background: #f1f1e6;
+}
+
 /*body > table {*/
 /*margin-top: 10%;*/
 /*width: 100%;*/
