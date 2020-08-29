@@ -2,7 +2,7 @@ body {
   font-family: "Roboto", sans-serif;
   font-size: 16px;
   background: #fff;
-  color: #f0972d;
+  color: #f15c32;
 }
 
 #header-nav {
@@ -43,70 +43,101 @@ body {
 }
 
 #nav-list a {
-  color: #f0972d;
+  color: #f15c32;
   text-transform: uppercase;
   text-align: center;
+  font-weight: 700;
 }
 
 #nav-list a:hover {
-  background: #e7e7e7;
+  background: #0089b7;
+  color: #f1f1e6;
+  font-weight: bold;
+}
+
+#collapsable-nav #nav-list .active > a {
+  background-color: #9fd4f0;
+}
+
+#main-content {
+  margin-top: 15px;
+}
+
+.container .jumbotron > div {
+  margin-bottom: 20px;
 }
 
 /* Home Page */
 .container .jumbotron {
   background-color: #fff;
-  margin-top: 20px;
   padding: 0;
 }
 
 .container .jumbotron img {
   margin-left: auto;
   margin-right: auto;
+  border: 1px solid #044c64;
+}
+
+#free-trial span {
+  font-weight: bold;
+  color: #044c64;
+}
+
+#free-trial {
+  margin-top: 60px;
+}
+
+#login-form {
+  margin-top: 30px;
+  margin-bottom: 30px;
+  text-transform: uppercase;
+  font-size: 0.9em;
+}
+
+#login-form input {
+  border: 1px solid #044c64;
+  text-transform: none;
+  font-weight: 700;
+  color: #044c64;
+  font-size: 1.2em;
+}
+
+#username div {
+  margin-bottom: 5px;
+}
+
+#username .username {
+  margin-bottom: 10px;
+}
+
+#login-button {
+  margin-top: 15px;
+}
+
+#login-button > input {
+  background: #fff;
+  text-transform: uppercase;
+  color: #044c64;
+  border: 0;
+  padding: 5px 10px 5px 10px;
+  font-weight: 600;
+}
+
+#login-button > input:hover {
+  background: #0089b7;
+  color: #f1f1e6;
+}
+
+#error-message {
+  font-weight: 700;
+  margin-top: -20px;
 }
 
 .panel-footer {
   /*background: #9fd4f0;*/
   background: #f1f1e6;
 }
-
-/*body > table {*/
-/*margin-top: 10%;*/
-/*width: 100%;*/
-/*}*/
-
-/*textarea,*/
-/*input,*/
-/*select {*/
-/*background-color: #fdfbfb;*/
-/*border: 1px solid #bbb;*/
-/*padding: 2px;*/
-/*margin: 1px;*/
-/*font-size: 14px;*/
-/*color: #808080;*/
-/*}*/
-
-/*a,*/
-/*a:link,*/
-/*a:visited,*/
-/*a:active {*/
-/*color: #aaa;*/
-/*text-decoration: none;*/
-/*font-size: 10px;*/
-/*}*/
-
-/*a:hover {*/
-/*border-bottom: 1px dotted #c1c1c1;*/
-/*color: #aaa;*/
-/*}*/
-
-/*img {*/
-/*border: none;*/
-/*}*/
-
-/*td {*/
-/*font-size: 14px;*/
-/*color: #7a7a7a;*/
-/*}*/
 
 /********** Medium devices only **********/
 @media (min-width: 992px) and (max-width: 1199px) {
@@ -126,6 +157,10 @@ body {
     margin-top: 20px;
   }
   /* End Header */
+
+  #free-trial {
+    margin-top: 40px;
+  }
 }
 
 /********** Small devices only **********/
@@ -143,6 +178,10 @@ body {
   .navbar-brand h1 {
     /* Restaurant name */
     font-size: 2.2em; /* 1vw = 1% of viewport width */
+  }
+
+  #free-trial {
+    margin-top: 0;
   }
 }
 
@@ -170,6 +209,10 @@ body {
   }
 
   #nav-list {
+    margin-top: 0;
+  }
+
+  #free-trial {
     margin-top: 0;
   }
 }
