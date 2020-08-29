@@ -16,17 +16,16 @@
       rel="stylesheet"
     />
   </head>
-
   <body>
     <header>
       <nav id="header-nav" class="navbar navbar-default">
         <div class="container">
           <div class="navbar-header">
-            <a href="index.html" class="pull-left visible-md visible-lg">
+            <a href="#" class="pull-left visible-md visible-lg">
               <div id="logo-img"></div>
             </a>
             <div class="navbar-brand">
-              <a href="index.html"><h1>Aquila Tekno Solutions</h1></a>
+              <a href="#"><h1>Aquila Tekno Solutions</h1></a>
             </div>
             <button
               type="button"
@@ -46,9 +45,8 @@
               <li>
                 <a href="#">Sign Up</a>
               </li>
-              <li>
-                <a href="login.html">Sign In</a>
-              </li>
+              <li class="active">
+                <a href="login.html">Log In</a>
               </li>
             </ul>
             <!-- #nav-list -->
@@ -61,15 +59,54 @@
     </header>
     <div id="main-content" class="container">
       <div class="jumbotron">
-        <a href="#">
-          <img
-            src="images/flyer.png"
-            alt="flyer"
-            class="img-responsive"
-          />
-        </a>
+        <div class="col-sm-4 col-xs-12">
+          <div id="free-trial" class="text-center">
+            Contact us for a <span>Free Trial</span>!
+          </div>
+          <div id="login-form">
+            <form
+              name="login"
+              action="$(link-login-only)"
+              method="post"
+              $(if chap-id)
+              onSubmit="return doLogin()"
+              $(endif)
+            >
+              <input type="hidden" name="dst" value="$(link-orig)" />
+              <input type="hidden" name="popup" value="true" />
+              <div id="username">
+                <div class="text-center">Username:</div>
+                <div class="username text-center">
+                  <input
+                    class="text-center"
+                    name="username"
+                    type="text"
+                    value="$(username)"
+                  />
+                </div>
+                <div class="text-center">Password:</div>
+                <div class="password text-center">
+                  <input class="text-center" name="password" type="password" />
+                </div>
+                <div id="login-button" class="text-center">
+                  <input type="submit" value="Login" />
+                </div>
+              </div>
+            </form>
+          </div>
+          $(if error)
+          <div id="error-message" class="text-center">$(error)</div>
+          $(endif)
+        </div>
+        <div class="col-sm-4 col-xs-12">
+          <img src="images/flyer.png" alt="flyer" class="img-responsive" />
+        </div>
+        <div class="col-sm-4 col-xs-12">
+          <img src="images/faq.png" alt="faq" class="img-responsive" />
+        </div>
       </div>
     </div>
+
     <footer class="panel-footer">
       <div class="container">
         <div class="text-center">
@@ -77,11 +114,35 @@
         </div>
       </div>
     </footer>
-    <!-- jQuery (Bootstrap JS plugins depend on it) -->
+
+    $(if chap-id)
+    <form name="sendin" action="$(link-login-only)" method="post">
+      <input type="hidden" name="username" />
+      <input type="hidden" name="password" />
+      <input type="hidden" name="dst" value="$(link-orig)" />
+      <input type="hidden" name="popup" value="true" />
+    </form>
+    <script type="text/javascript">
+      <!--
+      function doLogin() {
+        document.sendin.username.value = document.login.username.value;
+        document.sendin.password.value = hexMD5(
+          "$(chap-id)" + document.login.password.value + "$(chap-challenge)"
+        );
+        document.sendin.submit();
+        return false;
+      }
+      -->
+    </script>
+    $(endif)
+
+    <script type="text/javascript">
+      document.login.username.focus();
+    </script>
+
+    <script src="js/md5.js"></script>
     <script src="js/jquery-1.11.3.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
-    <script src="js/ajax-utils.js"></script>
-    <script src="js/script.js"></script>
     <script src="js/angular.min.js"></script>
     <script src="js/app.js"></script>
   </body>
