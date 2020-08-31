@@ -1,105 +1,156 @@
-<html ng-app="Hotspot">
+<!DOCTYPE html>
+<html ng-app="Aquila" lang="en">
   <head>
     $(if refresh-timeout)
-    <meta http-equiv="refresh" content="$(refresh-timeout-secs)">
+    <meta http-equiv="refresh" content="$(refresh-timeout-secs)" />
     $(endif)
-    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
-    <meta http-equiv="pragma" content="no-cache">
-    <meta http-equiv="expires" content="-1">
-    <title>mikrotik hotspot > status</title>
-    <style type="text/css">
-<!--
-textarea,input,select {
-  background-color: #FDFBFB;
-  border: 1px #BBBBBB solid;
-  padding: 2px;
-  margin: 1px;
-  font-size: 14px;
-  color: #808080;
-}
-
-.tabula{
-
-  border-width: 1px; 
-  border-collapse: collapse; 
-  border-color: #c1c1c1; 
-  background-color: transparent;
-  font-family: verdana;
-  font-size: 11px;
-}
-
-body{ color: #737373; font-size: 12px; font-family: verdana; }
-
-a, a:link, a:visited, a:active { color: #AAAAAA; text-decoration: none; font-size: 12px; }
-a:hover { border-bottom: 1px dotted #c1c1c1; color: #AAAAAA; }
-img {border: none;}
-td { font-size: 12px; padding: 4px;}
-
--->
-    </style>
-    <script src="js/angular.min.js"></script>
-    <script src="js/app.js"></script>
-    <script language="JavaScript">
-      <!--
-$(if advert-pending == 'yes')
-    var popup = '';
-    function focusAdvert() {
-  if (window.focus) popup.focus();
-    }
-    function openAdvert() {
-  popup = open('$(link-advert)', 'hotspot_advert', '');
-  setTimeout("focusAdvert()", 1000);
-    }
-$(endif)
-    function openLogout() {
-  if (window.name != 'hotspot_status') return true;
-        open('$(link-logout)', 'hotspot_logout', 'toolbar=0,location=0,directories=0,status=0,menubars=0,resizable=1,width=280,height=250');
-  window.close();
-  return false;
-    }
-      //-->
-    </script>
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+    <meta http-equiv="pragma" content="no-cache" />
+    <meta http-equiv="expires" content="-1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Aquila Tekno Solutions</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/styles.css" />
+    <!--<link-->
+      <!--href="https://fonts.googleapis.com/css2?family=Roboto:ital@0;1&display=swap"-->
+      <!--rel="stylesheet"-->
+    <!--/>-->
+    <!--<link-->
+      <!--href="https://fonts.googleapis.com/css2?family=Share+Tech&display=swap"-->
+      <!--rel="stylesheet"-->
+    <!--/>-->
   </head>
-  <body bottommargin="0" topmargin="0" leftmargin="0" rightmargin="0"
-                                                      $(if advert-pending == 'yes')
-                                                      onLoad="openAdvert()"
-                                                      $(endif)
-                                                      >
-                                                      <div ng-controller="HotspotController">
-                                                        <table width="100%" height="100%">
-                                                          <tr>
-                                                            <td align="center" valign="middle">
-                                                              <form action="$(link-logout)" name="logout" onSubmit="return openLogout()">
-                                                                <table border="1" class="tabula">
-                                                                  $(if login-by == 'trial')
-                                                                  <br><div style="text-align: center;">Welcome trial user!</div><br>
-                                                                  $(elif login-by != 'mac')
-                                                                  <br><div style="text-align: center;" >Welcome {{username}}!</div><br>
-                                                                  $(endif)
-                                                                  <tr><td align="right">IP address:</td><td>{{ip}}</td></tr>
-                                                                  <tr><td align="right">bytes up/down:</td><td>$(bytes-in-nice) / $(bytes-out-nice)</td></tr>
-                                                                  $(if session-time-left)
-                                                                  <tr><td align="right">connected / left:</td><td>$(uptime) / $(session-time-left)</td></tr>
-                                                                  $(else)
-                                                                  <tr><td align="right">connected:</td><td>$(uptime)</td></tr>
-                                                                  $(endif)
-                                                                  $(if blocked == 'yes')
-                                                                  <tr><td align="right">status:</td><td><div style="color: #FF8080">
-                                                                        <a href="$(link-advert)" target="hotspot_advert">advertisement</a> required</div></td>
-                                                                    $(elif refresh-timeout)
-                                                                    <tr><td align="right">status refresh:</td><td>$(refresh-timeout)</td>
-                                                                      $(endif)
-                                                                </table>
-                                                                $(if login-by-mac != 'yes')
-                                                                <br>
-                                                                <!-- user manager link. if user manager resides on other router, replace $(hostname) by its address
+  <body ng-controller="AquilaController">
+    <header>
+      <nav id="header-nav" class="navbar navbar-default">
+        <div class="container">
+          <div class="navbar-header">
+            <a href="rlogin.html" class="pull-left visible-md visible-lg">
+              <div id="logo-img"></div>
+            </a>
+            <div class="navbar-brand">
+              <a href="rlogin.html"><h1>{{brandName}}</h1></a>
+            </div>
+            <button
+              type="button"
+              class="navbar-toggle collapsed"
+              data-toggle="collapse"
+              data-target="#collapsable-nav"
+              aria-expanded="false"
+            >
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+          </div>
+          <div id="collapsable-nav" class="collapse navbar-collapse">
+            <ul id="nav-list" class="nav navbar-nav navbar-right">
+              <li>
+                <a href="$(link-logout)">Log Out</a>
+              </li>
+            </ul>
+            <!-- #nav-list -->
+          </div>
+          <!-- .collapse .navbar-collapse -->
+        </div>
+        <!-- .container -->
+      </nav>
+      <!-- #header-nav -->
+    </header>
+    <div id="main-content" class="container">
+      <div class="jumbotron">
+        <div>
+          <table width="100%" height="100%">
+            <tr>
+              <td align="center" valign="middle">
+                <table border="1" class="tabula">
+                  <div style="text-align: center">Welcome $(username)!</div>
+                  <tr>
+                    <td align="right">IP address:</td>
+                    <td>$(ip)</td>
+                  </tr>
+                  <tr>
+                    <td align="right">bytes up/down:</td>
+                    <td>$(bytes-in-nice) / $(bytes-out-nice)</td>
+                  </tr>
+                  $(if session-time-left)
+                  <tr>
+                    <td align="right">connected / left:</td>
+                    <td>$(uptime) / $(session-time-left)</td>
+                  </tr>
+                  $(else)
+                  <tr>
+                    <td align="right">connected:</td>
+                    <td>$(uptime)</td>
+                  </tr>
+                  $(endif) $(if blocked == 'yes')
+                  <tr>
+                    <td align="right">status:</td>
+                    <td>
+                      <div style="color: #ff8080">
+                        <a href="$(link-advert)" target="hotspot_advert"
+                          >advertisement</a
+                        >
+                        required
+                      </div>
+                    </td>
+                    $(elif refresh-timeout)
+                  </tr>
+
+                  <tr>
+                    <td align="right">status refresh:</td>
+                    <td>$(refresh-timeout)</td>
+                    $(endif)
+                  </tr>
+                </table>
+
+                $(if login-by-mac != 'yes')
+                <!-- user manager link. if user manager resides on other router, replace $(hostname) by its address
                                                                   <button onclick="document.location='http://$(hostname)/user?subs='; return false;">status</button>
                                                                   <!-- end of user manager link -->
-                                                                  <input type="submit" value="log off">
-                                                                  $(endif)
-                                                              </form>
-                                                            </td>
-                                                        </table>
-                                                      </div>
+                $(endif)
+              </td>
+            </tr>
+          </table>
+        </div>
+        <!--<div class="col-sm-6 col-xs-12">-->
+        <!--<img src="images/flyer.png" alt="flyer" class="img-responsive" />-->
+        <!--</div>-->
+        <!--<div class="col-sm-6 col-xs-12">-->
+        <!--<img src="images/faq.png" alt="faq" class="img-responsive" />-->
+        <!--</div>-->
+      </div>
+    </div>
+    <footer class="panel-footer">
+      <div class="container">
+        <div class="text-center">&copy; Copyright {{brandName}} 2020</div>
+      </div>
+    </footer>
+    <script language="JavaScript">
+      <!--
+      $(if advert-pending == 'yes')
+          var popup = '';
+          function focusAdvert() {
+        if (window.focus) popup.focus();
+          }
+          function openAdvert() {
+        popup = open('$(link-advert)', 'hotspot_advert', '');
+        setTimeout("focusAdvert()", 1000);
+          }
+      $(endif)
+          function openLogout() {
+        if (window.name != 'hotspot_status') return true;
+              open('$(link-logout)', 'hotspot_logout', 'toolbar=0,location=0,directories=0,status=0,menubars=0,resizable=1,width=280,height=250');
+        window.close();
+        return false;
+          }
+      //-->
+    </script>
+    <script src="js/jquery-1.11.3.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/angular.min.js"></script>
+    <script src="js/app.js"></script>
   </body>
 </html>

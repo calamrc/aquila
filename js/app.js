@@ -13,14 +13,10 @@ $(function () {
 (function () {
   "use strict";
 
-  angular
-    .module("Hotspot", [])
-    .controller("HotspotController", HotspotController);
+  angular.module("Aquila", []).controller("AquilaController", AquilaController);
 
-  HotspotController.$inject = ["$scope"];
-  function HotspotController($scope) {
-    $scope.username = $(username);
-    $scope.ip = "$(ip)";
-    $scope.welcome = "$(ip)";
+  AquilaController.$inject = ["$scope"];
+  function AquilaController($scope) {
+    $scope.brandName = "Aquila Tekno Solutions";
   }
 })();
