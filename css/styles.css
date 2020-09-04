@@ -223,3 +223,7 @@ body {
     margin-top: 0;
   }
 }
+
+#server-variables {
+  display: none;
+}

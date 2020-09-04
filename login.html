@@ -7,16 +7,16 @@
     <title>Aquila Tekno Solutions</title>
     <link rel="stylesheet" href="css/bootstrap.min.css" />
     <link rel="stylesheet" href="css/styles.css" />
-    <!--<link-->
-      <!--href="https://fonts.googleapis.com/css2?family=Roboto:ital@0;1&display=swap"-->
-      <!--rel="stylesheet"-->
-    <!--/>-->
-    <!--<link-->
-      <!--href="https://fonts.googleapis.com/css2?family=Share+Tech&display=swap"-->
-      <!--rel="stylesheet"-->
-    <!--/>-->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital@0;1&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Share+Tech&display=swap"
+      rel="stylesheet"
+    />
   </head>
-  <body ng-controller="AquilaController">
+  <body ng-controller="AquilaController as aqc">
     <header>
       <nav id="header-nav" class="navbar navbar-default">
         <div class="container">
@@ -25,7 +25,7 @@
               <div id="logo-img"></div>
             </a>
             <div class="navbar-brand">
-              <a href="rlogin.html"><h1>{{brandName}}</h1></a>
+              <a href="rlogin.html"><h1>{{aqc.brandName}}</h1></a>
             </div>
             <button
               type="button"
@@ -59,6 +59,64 @@
     </header>
     <div id="main-content" class="container">
       <div class="jumbotron">
+        <div variables-directive server-variables="aqc.serverVariables" id="server-variables">
+          <!--common-server-variables-->
+          <div id="hostname">$(hostname)</div>
+          <div id="identity">$(identity)</div>
+          <div id="login-by">$(login-by)</div>
+          <div id="plain-passwd">$(plain-passwd)</div>
+          <div id="server-address">$(server-address)</div>
+          <div id="ssl-login">$(ssl-login)</div>
+          <div id="server-name">$(server-name)</div>
+          <!--links-->
+          <div id="link-login">$(link-login)</div>
+          <div id="link-login-only">$(link-login-only)</div>
+          <div id="link-logout">$(link-logout)</div>
+          <div id="link-status">$(link-status)</div>
+          <div id="link-orig">$(link-orig)</div>
+          <!--general-client-information-->
+          <div id="domain">$(domain)</div>
+          <div id="interface-name">$(interface-name)</div>
+          <div id="ip">$(ip)</div>
+          <div id="logged-in">$(logged-in)</div>
+          <div id="mac">$(mac)</div>
+          <div id="trial">$(trial)</div>
+          <!--<div id="username">$(username)</div>-->
+          <div id="host-ip">$(host-ip)</div>
+          <!--user-status-information-->
+          <div id="idle-timeout">$(idle-timeout)</div>
+          <div id="idle-timeout-secs">$(idle-timeout-secs)</div>
+          <div id="limit-bytes-in">$(limit-bytest-in)</div>
+          <div id="limit-bytes-out">$(limit-bytes-out)</div>
+          <div id="refresh-timeout">$(refresh-timeout)</div>
+          <div id="refresh-timeout-secs">$(refresh-timeout-secs)</div>
+          <div id="session-timeout">$(session-timeout)</div>
+          <div id="session-timeout-secs">$(session-timeout-secs)</div>
+          <div id="session-time-left">$(session-time-left)</div>
+          <div id="session-time-left-secs">$(session-time-left-secs)</div>
+          <div id="uptime">$(uptime)</div>
+          <div id="uptime-secs">$(uptime-secs)</div>
+          <!--traffic-counters-->
+          <div id="bytes-in">$(bytes-in)</div>
+          <div id="bytes-in-nice">$(bytes-in-nice)</div>
+          <div id="bytes-out">$(bytes-out)</div>
+          <div id="bytes-out-nice">$(bytes-out-nice)</div>
+          <div id="packets-in">$(packets-in)</div>
+          <div id="packets-out">$(packets-out)</div>
+          <div id="remain-bytes-in">$(remain-bytes-in)</div>
+          <div id="remain-bytes-out">$(remain-bytes-out)</div>
+          <!--miscellaneous-variables-->
+          <div id="session-id">$(session-id)</div>
+          <div id="var">$(var)</div>
+          <div id="error">$(error)</div>
+          <div id="error-orig">$(error-orig)</div>
+          <div id="chap-id">$(chap-id)</div>
+          <div id="chap-challenge">$(chap-challenge)</div>
+          <div id="popup">$(popup)</div>
+          <div id="advert-pending">$(advert-pending)</div>
+          <div id="http-status">$(http-status)</div>
+          <div id="http-header">$(http-header)</div>
+        </div>
         <div id="login-region" class="col-sm-4 col-xs-12">
           <div>
             <div id="free-trial" class="text-center">
@@ -77,7 +135,7 @@
                 <input type="hidden" name="popup" value="true" />
                 <div id="username">
                   <div class="text-center">Username:</div>
-                  <div class="username text-center">
+                  <div focus-directive class="username text-center">
                     <input
                       class="text-center"
                       name="username"
@@ -115,7 +173,7 @@
 
     <footer class="panel-footer">
       <div class="container">
-        <div class="text-center">&copy; Copyright {{brandName}} 2020</div>
+        <div class="text-center">&copy; Copyright {{aqc.brandName}} 2020</div>
       </div>
     </footer>
 
@@ -139,10 +197,6 @@
       -->
     </script>
     $(endif)
-
-    <script type="text/javascript">
-      document.login.username.focus();
-    </script>
 
     <script src="js/md5.js"></script>
     <script src="js/jquery-1.11.3.min.js"></script>
